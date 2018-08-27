@@ -1,0 +1,826 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Open Sans Regular'), local('OpenSans-Regular'), url(fonts/OpenSansExt.woff2) format('woff2');
+	unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Open Sans Regular'), local('OpenSans-Regular'), url(fonts/OpenSansBase.woff2) format('woff2');
+	unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	font-family: sans-serif;
+	font-size: 27px;
+	font-weight: normal;
+	color: #04023b;
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+body {
+	margin: 0;
+	background-color: #F0F0F0;
+	padding: 0 100px;
+	overflow: hidden;
+}
+
+.header {
+	height: 80px;
+	width: 100%;
+	background-color: #039BE5;
+	color: white;
+	font-size: 18px;
+	font-family: "Open Sans";
+	font-weight: 400;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	box-shadow: 0 0 10px black;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
+}
+
+.main {
+	margin-top: 80px;
+	padding-top: 20px;
+	background-color: white;
+	z-index: 10;
+	min-height: calc(100vh - 80px);
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+}
+
+.main > section:first-child {
+	width: 70%;
+}
+
+.list_wrapper {
+	height: 100%;
+	margin-right: 50px;
+}
+
+.list {
+	height: 100%;
+	width: 400px;
+	list-style: none;
+	display: flex;
+}
+
+.list > li {
+	height: 100%;
+	cursor: pointer;
+	width: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: rgba(255,255,255,0.8);
+}
+
+.list > li:hover {
+	/*background-color: #3875bf;*/
+	color: rgba(255,255,255, 1);
+	text-shadow: 0 0 1px white;
+}
+
+.logotype_wrapper {
+	font-family: Calibri;
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-around;
+	margin-left: 50px;
+	width: 150px;
+	font-size: 30px;
+}
+
+.logo > div {
+	height: 0;
+	width: 0;
+	position: relative;
+	opacity: 0.8;
+	border-bottom: #bf3b16 solid 50px;
+	border-top: 1px solid transparent;
+	border-right: 20px solid transparent;
+	border-left: 20px solid transparent;
+}
+
+.logo > div::before {
+	content: '';
+	display: block;
+	height: 0;
+	width: 0;
+	position: absolute;
+	bottom: -50px;
+	right: -27px;
+	opacity: 0.9;
+	border-bottom: #3015bf solid 40px;
+	border-top: 1px solid transparent;
+	border-right: 16px solid transparent;
+	border-left: 16px solid transparent;
+}
+
+.logo > div::after {
+	content: '';
+	display: block;
+	height: 0;
+	width: 0;
+	position: absolute;
+	bottom: -50px;
+	right: -33px;
+	opacity: 0.9;
+	border-bottom: #bdbf0b solid 32px;
+	border-top: 1px solid transparent;
+	border-right: 13px solid transparent;
+	border-left: 13px solid transparent;
+}
+
+.user_form input[type='checkbox'] {
+	display: none;
+}
+
+.checkbox_label {
+	height: 20px;
+	width: 20px;
+	border: #839bb4 1px solid;
+	box-sizing: border-box;
+	padding: 3px;
+	border-radius: 2px;
+	display: block;
+	box-shadow: #71839c inset 0 0 1px 0;
+	margin-right: 5px;
+}
+
+.checkbox_label::before {
+	content: '';
+	height: 100%;
+	width: 100%;
+	background-color: #637380;
+}
+
+.user_form input[type='checkbox']:checked + .checkbox_label::before{
+	display: block;
+}
+
+.user_form input[type='datetime-local'] {
+	font-family: "Open Sans";
+}
+
+.line {
+	display: flex;
+	margin: 20px 0;
+}
+
+.description {
+	border-bottom: #E1E4E8 1px solid;
+}
+
+.description > p {
+	font-size: 0.85em;
+	font-family: sans-serif;
+	color: #6d757d;
+	margin: 0 0 20px 0;
+}
+
+.line:first-child {
+	flex-wrap: wrap;
+	font-family: sans-serif;
+	margin-top: 50px;
+	position: relative;
+}
+
+.url_input {
+	width: 100%;
+	height: 40px;
+	margin-top: 5px;
+	box-sizing: border-box;
+	font-family: sans-serif;
+	font-size: 20px;
+	border: #808890 1px solid;
+	border-radius: 5px;
+	background-color: #FAFBFC;
+	box-shadow: inset 0 1px 2px rgba(27,31,35,0.075);
+	padding: 5px 10px;
+	outline: none;
+}
+
+.url_input:focus {
+	box-shadow: #ff9b1b 0 0 0 3px;
+}
+
+.line:nth-child(2), .line:nth-child(4){
+	align-items: center;
+	justify-content: flex-start;
+	font-family: sans-serif;
+
+}
+
+.line:nth-child(2) {
+	margin-bottom: 0;
+}
+
+.line:nth-child(3) {
+	align-items: center;
+	font-family: sans-serif;
+	font-size: 20px;
+	justify-content: flex-start;
+	margin-top: 0;
+}
+
+.line:nth-child(3) > .input_wrapper {
+	position: relative;
+}
+
+.line:nth-child(3) > .input_wrapper > input {
+	margin: 0;
+	margin-left: 3px;
+	width: 240px;
+	padding-right: 30px;
+}
+
+.line:nth-child(3) > .input_wrapper > .sk-wave {
+	position: absolute;
+	right: 7px;
+	top: 10px;
+}
+
+.line:nth-child(3) > input {
+	width: 200px;
+	margin: 0;
+	margin-bottom: 5px;
+	margin-left: 5px;
+}
+
+input:disabled, button:disabled, .disabled {
+	opacity: 0.5;
+}
+
+.line:nth-child(5) {
+	align-items: center;
+	justify-content: flex-start;
+	font-family: sans-serif;
+	margin-top: 10px;
+	margin-bottom: 0;
+}
+
+.line:nth-child(6) {
+	margin-top: 0;
+	margin-bottom: 20px;
+}
+
+.line:nth-child(7) {
+	margin: 0;
+	justify-content: flex-end;
+}
+
+.line > button {
+	height: 40px;
+	width: 200px;
+	background-color: #45a9ff;
+	border: none;
+	color: white;
+	font-family: "Open Sans";
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 15px;
+}
+
+.list > .action {
+	background-color: #0386cd;
+	color: white;
+}
+
+.list > .action:hover {
+	text-shadow: 0 0 0 black;
+}
+
+.incorrect {
+	background-color: #ffb6b0;
+}
+
+.existing {
+	background-color: #a1e0b0;
+}
+
+
+/*************************** Стили лоудера форм  ***************************/
+
+.sk-wave {
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.sk-wave .sk-rect {
+	background-color: #337ab7;
+	height: 100%;
+	width: 2px;
+	display: block;
+	animation: sk-wave-stretch-delay 1.2s infinite ease-in-out;
+}
+
+.sk-wave .sk-rect-1 {
+	animation-delay: -1.2s;
+}
+
+.sk-wave .sk-rect-2 {
+	animation-delay: -1.1s;
+}
+
+.sk-wave .sk-rect-3 {
+	animation-delay: -1s;
+}
+
+.sk-wave .sk-rect-4 {
+	animation-delay: -0.9s;
+}
+
+.sk-wave .sk-rect-5 {
+	animation-delay: -0.8s;
+}
+
+@keyframes sk-wave-stretch-delay {
+	0%, 40%, 100% {
+		transform: scaleY(0.4);
+	}
+
+	20% {
+		transform: scaleY(1);
+	}
+}
+
+/****************************** Стили главного лоудера ********************************/
+
+.body {
+	background: currentcolor;
+	color: #fff;
+	text-align: center;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+.a {
+	position: absolute;
+	top: calc((50% - 1em) + 40px);
+	left: calc(50% - 5em);
+}
+
+.dot {
+	background: tomato;
+}
+
+.dot, .dot:after {
+	display: inline-block;
+	width: 2em;
+	height: 2em;
+	border-radius: 50%;
+	animation: forward;
+}
+
+.dot:first-child {
+	animation: loading-animation 1.5s -1.5s infinite;
+}
+.dot:first-child:after {
+	animation: loading-animation 1.5s -1.2s infinite;
+}
+
+.dot:nth-child(2) {
+	animation: loading-animation 1.5s -1.2s infinite;
+}
+.dot:nth-child(2):after {
+	animation: loading-animation 1.5s -0.9s infinite;
+}
+
+.dot:nth-child(3) {
+	animation: loading-animation 1.5s -0.9s infinite;
+}
+.dot:nth-child(3):after {
+	animation: loading-animation 1.5s -0.6s infinite;
+}
+
+.dot:nth-child(4) {
+	animation: loading-animation 1.5s -0.6s infinite;
+}
+.dot:nth-child(4):after {
+	animation: loading-animation 1.5s -0.3s infinite;
+}
+
+.dot:nth-child(5) {
+	animation: loading-animation 1.5s -0.3s infinite;
+}
+.dot:nth-child(5):after {
+	animation: loading-animation 1.5s -0s infinite;
+}
+
+.dot:after {
+	background: currentcolor;
+	content: '';
+}
+
+@keyframes loading-animation {
+
+	0%, 50% {
+		transform: scale(0);
+	}
+}
+
+/**************************************** Дополнительно к созданной ссылке ***********************/
+
+.code_description {
+	font-family: "Open Sans";
+	font-size: 16px;
+}
+
+h2 {
+	font-family: Calibri;
+	margin: 0;
+	margin-bottom: 10px;
+}
+
+.code {
+	font-size: 30px;
+	font-family: sans-serif;
+	margin-top: 30px;
+	color: #45a0e0;
+}
+
+.href_description {
+	width: 100%;
+	height: 300px;
+	margin-top: 30px;
+}
+
+.href_description > div:first-child {
+	font-family: "Open Sans";
+	font-size: 15px;
+}
+
+.href_description > a {
+	font-size: 20px;
+	text-decoration: none;
+	font-family: sans-serif;
+	padding: 20px;
+	display: block;
+	color: #0a0d66;
+	outline: none;
+}
+
+.href_description > div:last-child {
+	font-family: "Open Sans";
+	font-size: 15px;
+	max-width: 240px;
+	color: #a43a34;
+}
+
+/********************************* Стили списка ссылок ***********************************/
+
+.else_header {
+	position: absolute;
+	top: 80px;
+	left: 0;
+	height: 50px;
+	width: 100%;
+	background-color: white;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	z-index: 1000;
+	box-shadow: 0 2px 2px rgba(0,0,0, 0.4);
+}
+
+.else_header .url_input {
+	height: 35px;
+	width: 200px;
+	font-size: 17px;
+	margin: 0;
+}
+
+.else_header > form > label {
+	margin-right: 20px;
+}
+
+.else_header > form {
+	display: flex;
+	align-items: center;
+}
+
+.else_header > div {
+	font-family: "Open Sans";
+	font-size: 22px;
+	margin-left: 20px;
+}
+
+.else_header > form > label:nth-child(2) {
+	width: 120px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: "Open Sans";
+	font-size: 15px;
+}
+
+.else_header > form > label:nth-child(3) > button {
+	padding: 0;
+	margin: 0;
+	outline: none;
+	box-sizing: border-box;
+	height: 35px;
+	width: 120px;
+	cursor: pointer;
+	border: none;
+	background-color: #63a470;
+	color: white;
+	transition: 0.3s linear;
+}
+
+.else_header > form > label:nth-child(3) > button:hover {
+	background-color: #4e895b;
+}
+
+.links_main {
+	margin-top: 130px;
+	display: block;
+	padding-bottom: 70px;
+	max-height: calc(100vh - 130px);
+	overflow: auto;
+}
+
+.links_main > .links_description {
+	height: 50px;
+	background-color: #dad7dd;
+	width: 100% !important;
+	color: #080b42;
+	font-family: "Open Sans";
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.links_main > .links_description > div:first-child {
+	width: 80%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.links_main > .links_description > div:last-child {
+	width: 20%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 25px;
+	font-family: Calibri;
+}
+
+.reference {
+	width: 95%;
+	height: 150px;
+	margin: auto;
+	margin-top: 10px;
+	box-sizing: border-box;
+	border-top: #b0bbb2 solid 1px;
+	border-bottom: #b0bbb2 solid 1px;
+	overflow: hidden;
+	position: relative;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+	cursor: pointer;
+}
+
+.reference:hover {
+	background-color: #f3f8ec;
+}
+
+.reference > div:first-child {
+	width: 100%;
+	height: 80%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+}
+
+.reference > div:first-child > div:first-child {
+	font-family: Calibri;
+	font-size: 30px;
+	margin-left: 40px;
+	margin-top: 20px;
+	border-bottom: #bb655e 5px solid;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 70%;
+}
+
+.reference > div:first-child > div:last-child {
+	font-family: "Open Sans";
+	font-size: 25px;
+	margin-left: 80px;
+	margin-top: 10px;
+	border-bottom: #bb655e 5px solid;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 70%;
+}
+
+.reference > div:last-child {
+	width: 100%;
+	height: 20%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-top: 1px solid #b0bbb2;
+	background-color: rgba(0,0,0,0);
+	z-index: 100;
+}
+
+.reference > div:last-child > div:first-child {
+	margin-left: 10px;
+}
+
+.reference > div:last-child > div:last-child {
+	margin-right: 10px;
+}
+
+.set > div:first-child > div:first-child, .set > div:first-child > div:last-child {
+	border-color: #95C08B;
+}
+
+.none {
+	width: 100%;
+	height: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: Calibri;
+	font-size: 25px;
+	color: #a9bbbc;
+}
+
+/********************************** Стили статистики просмотров *************************/
+
+.manual {
+	width: 100%;
+	height: 30px;
+	font-family: "Open Sans";
+	display: flex;
+}
+
+.manual > div:first-child {
+	width: 50%;
+	height: 100%;
+	background-color: #587fbc;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.manual > div:last-child {
+	width: 50%;
+	height: 100%;
+	background-color: #2dbc7d;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.my_ref {
+	width: 100%;
+	height: 70px;
+	display: flex;
+	flex-wrap: wrap;
+	font-family: Calibri;
+}
+
+.my_ref > div:first-child:hover {
+	background-color: #e7faf0;
+	cursor: pointer;
+}
+
+.my_ref > div:first-child {
+	width: 100%;
+	height: 40px;
+	color: #0d0d4f;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 25px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.my_ref > div:nth-child(2) {
+	width: 50%;
+	height: 30px;
+	background-color: #587fbc;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.my_ref > div:nth-child(3) {
+	width: 50%;
+	height: 30px;
+	background-color: #2dbc7d;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.root_url {
+	width: 100%;
+	height: 70px;
+	display: flex;
+	flex-wrap: wrap;
+	font-family: Calibri;
+}
+
+.root_url > div:first-child {
+	width: 100%;
+	height: 40px;
+	color: #0d0d4f;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 25px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.root_url > div:first-child:hover {
+	background-color: #e7faf0;
+	cursor: pointer;
+}
+
+.root_url > div:nth-child(2) {
+	width: 50%;
+	height: 30px;
+	background-color: #587fbc;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.root_url > div:nth-child(3) {
+	width: 50%;
+	height: 30px;
+	background-color: #2dbc7d;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.statistic_wrapper {
+	box-sizing: border-box;
+	margin-top: 30px;
+	border-left: #587fbc solid 1px;
+	border-right: #2dbc7d solid 1px;
+	height: 170px;
+}
+
+.message {
+	width: 100%;
+	height: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	font-family: Calibri;
+}
+
+.error {
+	background-color: #fa4a4d;
+}
+
+.success {
+	background-color: #11cb72;
+}
